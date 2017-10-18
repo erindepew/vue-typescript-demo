@@ -1,6 +1,6 @@
-# typescript-vue-demo
+# Typescript + Vue Demo
 
-> A Vue.js project
+> A demo implementing Typescript with single file Vue components
 
 ## Build Setup
 
