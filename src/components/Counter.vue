@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { mapState } from 'vuex'
-import * as store from '../store'
+import {INCREMENT, DECREMENT, SET_INITIAL_COUNT} from '../store/store'
 
 export default {
   name: 'Counter',
@@ -29,14 +29,14 @@ export default {
   },
   methods: {
     increment: function ():void {
-      store.INCREMENT(this.$store)
+      INCREMENT(this.$store)
     },
     decrement: function ():void {
-      store.DECREMENT(this.$store)
+      DECREMENT(this.$store)
     }
   },
   mounted ():void {
-    store.SET_INITIAL_COUNT(this.$store, this.initialCount)
+    SET_INITIAL_COUNT(this.$store, this.initialCount)
   }
 }
 </script>

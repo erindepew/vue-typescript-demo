@@ -1,2 +1,2 @@
 export * from "./state";
-export * from "./store";
+export {SET_INITIAL_COUNT, INCREMENT, DECREMENT, createStore} from "./store";

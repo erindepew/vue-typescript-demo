@@ -11,7 +11,7 @@ export const storeOptions = {
     count: 0,
   },
   actions: {
-    INCREMENT: function ({ commit, state: Counter }):void {
+    INCREMENT: function ({ commit, state }):void {
       commit('UPDATE_COUNT', this.state.count + 1)
     },
     DECREMENT: function ({ commit }):void {
@@ -35,7 +35,6 @@ const { commit, read, dispatch } =
 getStoreAccessors<State, State>("");
 
 const actions = storeOptions.actions;
-
 const mutations = storeOptions.mutations;
 
 export const INCREMENT = dispatch(actions.INCREMENT);
