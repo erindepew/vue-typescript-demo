@@ -9,6 +9,7 @@ export default new VueRouter({
     {
       path: '/',
       name: 'Counter',
+      props: [],
       component: Counter
     }
   ]
