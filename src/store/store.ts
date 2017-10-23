@@ -1,35 +1,49 @@
 import Vue from 'vue'
-import Vuex from 'vuex';
 import { ActionContext, Store } from "vuex";
 import { getStoreAccessors } from "vuex-typescript";
-import { State } from './State';
+import { State } from './state';
 
-type BasketContext = ActionContext<State, State>;
+type Context = ActionContext<State, State>;
 
 export const storeOptions = {
   state: {
     count: 0,
   },
+
+  // actions without type-safety
+  //
+  // actions: {
+  //   INCREMENT: function ({ commit, state }):void {
+  //     commit('UPDATE_COUNT', state. + 1)
+  //   },
+  //   DECREMENT: function ({ commit }):void {
+  //     commit('UPDATE_COUNT', this.state.count - 1)
+  //   },
+  //   SET_INITIAL_COUNT: function ({ commit }, count:number):void {
+  //     commit('UPDATE_COUNT', count)
+  //   }
+  // },
+
   actions: {
-    INCREMENT: function ({ commit, state }):void {
-      commit('UPDATE_COUNT', this.state.count + 1)
+    INCREMENT: function (context: Context):void {
+      UPDATE_COUNT(context, this.state.count + 1)
     },
-    DECREMENT: function ({ commit }):void {
-      commit('UPDATE_COUNT', this.state.count - 1)
+    DECREMENT: function (context: Context):void {
+      UPDATE_COUNT(context, this.state.count - 1)
     },
-    SET_INITIAL_COUNT: function ({ commit }, count:number):void {
-      commit('UPDATE_COUNT', count)
+    SET_INITIAL_COUNT: function (context: Context, count:number):void {
+      UPDATE_COUNT(context, count)
     }
   },
 
   mutations: {
-    UPDATE_COUNT: (state, count:number) => {
+    UPDATE_COUNT: (state:State, count:number) => {
       state.count = count;
     }
   },
 }
 
-export const createStore = () => new Vuex.Store<State>(storeOptions);
+export const createStore = () => new Store<State>(storeOptions);
 
 const { commit, read, dispatch } =
 getStoreAccessors<State, State>("");
