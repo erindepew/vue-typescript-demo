@@ -68,5 +68,4 @@ export default {
     font-weight: normal;
     margin-bottom: 40px;
   }
-
 </style>

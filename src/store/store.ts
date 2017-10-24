@@ -13,13 +13,13 @@ export const storeOptions = {
   // actions without type-safety
   //
   // actions: {
-  //   INCREMENT: function ({ commit, state }):void {
+  //   INCREMENT: function ({ commit, state }) {
   //     commit('UPDATE_COUNT', state. + 1)
   //   },
-  //   DECREMENT: function ({ commit }):void {
+  //   DECREMENT: function ({ commit }) {
   //     commit('UPDATE_COUNT', this.state.count - 1)
   //   },
-  //   SET_INITIAL_COUNT: function ({ commit }, count:number):void {
+  //   SET_INITIAL_COUNT: function ({ commit }, count:number) {
   //     commit('UPDATE_COUNT', count)
   //   }
   // },
